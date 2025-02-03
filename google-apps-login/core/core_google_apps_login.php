@@ -853,7 +853,7 @@ class Core_Google_Apps_Login {
 			$this->set_other_admin_notices();
 		}
 
-		add_filter( 'user_profile_picture_description', [ $this, 'gal_user_profile_picture_description' ] );
+		add_filter( 'user_profile_picture_description', [ $this, 'gal_user_profile_picture_description' ], 10, 2 );
 	}
 
 	/**

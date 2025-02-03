@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 3.5.1 =
+* Fixed: There was a fatal error when editing a single user in the admin area due to the incorrect usage of the built-in WordPress filter.
+
 = 3.5.0 =
 * IMPORTANT: The minimum WordPress version has been raised to WordPress 5.5. Technically the plugin still works on older versions as well, but we will not actively support them.
 * IMPORTANT: The minimum PHP version has been raised to PHP 7.2.
