@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2011 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,16 +15,20 @@
  * limitations under the License.
  */
 
+require_once realpath( dirname( __FILE__ ) . '/../../../autoload.php' );
+
 /**
- * Verifies signatures.
- *
- * @author Brian Eaton <beaton@google.com>
+ * Interface for checking how many times a given task can be retried following
+ * a failure.
  */
-abstract class GoogleGAL_Verifier_Abstract
+interface GoogleGAL_Task_Retryable
 {
   /**
-   * Checks a signature, returns true if the signature is correct,
-   * false otherwise.
+   * Gets the number of times the associated task can be retried.
+   *
+   * NOTE: -1 is returned if the task can be retried indefinitely
+   *
+   * @return integer
    */
-  abstract public function verify($data, $signature);
+  public function allowedRetries();
 }

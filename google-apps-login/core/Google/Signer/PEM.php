@@ -22,8 +22,6 @@ require_once realpath( dirname( __FILE__ ) . '/../../../autoload.php' );
 
 /**
  * Signs data with PEM key (e.g. taken from new JSON files).
- *
- * @author Dan Lester <dan@danlester.com>
  */
 class GoogleGAL_Signer_PEM extends GoogleGAL_Signer_Abstract {
 

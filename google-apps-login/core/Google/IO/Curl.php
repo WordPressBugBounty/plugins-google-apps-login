@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,135 +23,170 @@
 
 require_once realpath( dirname( __FILE__ ) . '/../../../autoload.php' );
 
-class GoogleGAL_IO_Curl extends GoogleGAL_IO_Abstract {
+class GoogleGAL_IO_Curl extends GoogleGAL_IO_Abstract
+{
+  // cURL hex representation of version 7.30.0
+  const NO_QUIRK_VERSION = 0x071E00;
 
-	// cURL hex representation of version 7.30.0
-	const NO_QUIRK_VERSION = 0x071E00;
+  private $options = array();
 
-	private $options = array();
-	/**
-	 * Execute an HTTP Request
-	 *
-	 * @param GoogleGAL_HttpRequest $request the http request to be executed
-	 * @return GoogleGAL_HttpRequest http request with the response http code,
-	 * response headers and response body filled in
-	 * @throws GoogleGAL_IO_Exception on curl or IO error
-	 */
-	public function executeRequest( GoogleGAL_Http_Request $request ) {
-		$curl = curl_init();
+  /** @var bool $disableProxyWorkaround */
+  private $disableProxyWorkaround;
 
-		if ( $request->getPostBody() ) {
-			curl_setopt( $curl, CURLOPT_POSTFIELDS, $request->getPostBody() );
-		}
+  public function __construct(GoogleGAL_Client $client)
+  {
+    if (!extension_loaded('curl')) {
+      $error = 'The cURL IO handler requires the cURL extension to be enabled';
+      $client->getLogger()->critical($error);
+      throw new GoogleGAL_IO_Exception($error);
+    }
 
-		$requestHeaders = $request->getRequestHeaders();
-		if ( $requestHeaders && is_array( $requestHeaders ) ) {
-			$curlHeaders = array();
-			foreach ( $requestHeaders as $k => $v ) {
-				$curlHeaders[] = "$k: $v";
-			}
-			curl_setopt( $curl, CURLOPT_HTTPHEADER, $curlHeaders );
-		}
-		curl_setopt( $curl, CURLOPT_URL, $request->getUrl() );
+    parent::__construct($client);
 
-		curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, $request->getRequestMethod() );
-		curl_setopt( $curl, CURLOPT_USERAGENT, $request->getUserAgent() );
+    $this->disableProxyWorkaround = $this->client->getClassConfig(
+        'GoogleGAL_IO_Curl',
+        'disable_proxy_workaround'
+    );
+  }
 
-		curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, false );
-		curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, true );
-		// 1 is CURL_SSLVERSION_TLSv1, which is not always defined in PHP.
-		curl_setopt( $curl, CURLOPT_SSLVERSION, 1 );
-		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $curl, CURLOPT_HEADER, true );
+  /**
+   * Execute an HTTP Request
+   *
+   * @param GoogleGAL_Http_Request $request the http request to be executed
+   * @return array containing response headers, body, and http code
+   * @throws GoogleGAL_IO_Exception on curl or IO error
+   */
+  public function executeRequest(GoogleGAL_Http_Request $request)
+  {
+    $curl = curl_init();
 
-		if ( $request->canGzip() ) {
-			curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
-		}
+    if ($request->getPostBody()) {
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $request->getPostBody());
+    }
 
-		foreach ( $this->options as $key => $var ) {
-			curl_setopt( $curl, $key, $var );
-		}
+    $requestHeaders = $request->getRequestHeaders();
+    if ($requestHeaders && is_array($requestHeaders)) {
+      $curlHeaders = array();
+      foreach ($requestHeaders as $k => $v) {
+        $curlHeaders[] = "$k: $v";
+      }
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $curlHeaders);
+    }
+    curl_setopt($curl, CURLOPT_URL, $request->getUrl());
 
-		if ( ! isset( $this->options[ CURLOPT_CAINFO ] ) ) {
-			curl_setopt( $curl, CURLOPT_CAINFO, dirname( __FILE__ ) . '/cacerts.pem' );
-		}
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request->getRequestMethod());
+    curl_setopt($curl, CURLOPT_USERAGENT, $request->getUserAgent());
 
-		$this->client->getLogger()->debug(
-			'cURL request',
-			array(
-				'url'     => $request->getUrl(),
-				'method'  => $request->getRequestMethod(),
-				'headers' => $requestHeaders,
-				'body'    => $request->getPostBody(),
-			)
-		);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 
-		$response = curl_exec( $curl );
-		if ( $response === false ) {
-			$error = curl_error( $curl );
+    // The SSL version will be determined by the underlying library
+    // @see https://github.com/google/google-api-php-client/pull/644
+    //curl_setopt($curl, CURLOPT_SSLVERSION, 1);
 
-			$this->client->getLogger()->error( 'cURL ' . $error );
-			throw new GoogleGAL_IO_Exception( $error );
-		}
-		$headerSize = curl_getinfo( $curl, CURLINFO_HEADER_SIZE );
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADER, true);
 
-		list($responseHeaders, $responseBody) = $this->parseHttpResponse( $response, $headerSize );
-		$responseCode                         = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
+    if ($request->canGzip()) {
+      curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
+    }
 
-		$this->client->getLogger()->debug(
-			'cURL response',
-			array(
-				'code'    => $responseCode,
-				'headers' => $responseHeaders,
-				'body'    => $responseBody,
-			)
-		);
+    $options = $this->client->getClassConfig('GoogleGAL_IO_Curl', 'options');
+    if (is_array($options)) {
+      $this->setOptions($options);
+    }
 
-		return array( $responseBody, $responseHeaders, $responseCode );
-	}
+    foreach ($this->options as $key => $var) {
+      curl_setopt($curl, $key, $var);
+    }
 
-	/**
-	 * Set options that update the transport implementation's behavior.
-	 *
-	 * @param $options
-	 */
-	public function setOptions( $options ) {
-		$this->options = $options + $this->options;
-	}
+    if (!isset($this->options[CURLOPT_CAINFO])) {
+      curl_setopt($curl, CURLOPT_CAINFO, dirname(__FILE__) . '/cacerts.pem');
+    }
 
-	/**
-	 * Set the maximum request time in seconds.
-	 *
-	 * @param $timeout in seconds
-	 */
-	public function setTimeout( $timeout ) {
-		// Since this timeout is really for putting a bound on the time
-		// we'll set them both to the same. If you need to specify a longer
-		// CURLOPT_TIMEOUT, or a tigher CONNECTTIMEOUT, the best thing to
-		// do is use the setOptions method for the values individually.
-		$this->options[ CURLOPT_CONNECTTIMEOUT ] = $timeout;
-		$this->options[ CURLOPT_TIMEOUT ]        = $timeout;
-	}
+    $this->client->getLogger()->debug(
+        'cURL request',
+        array(
+            'url' => $request->getUrl(),
+            'method' => $request->getRequestMethod(),
+            'headers' => $requestHeaders,
+            'body' => $request->getPostBody()
+        )
+    );
 
-	/**
-	 * Get the maximum request time in seconds.
-	 *
-	 * @return timeout in seconds
-	 */
-	public function getTimeout() {
-		return $this->options[ CURLOPT_TIMEOUT ];
-	}
+    $response = curl_exec($curl);
+    if ($response === false) {
+      $error = curl_error($curl);
+      $code = curl_errno($curl);
+      $map = $this->client->getClassConfig('GoogleGAL_IO_Exception', 'retry_map');
 
-	/**
-	 * Test for the presence of a cURL header processing bug
-	 *
-	 * {@inheritDoc}
-	 *
-	 * @return boolean
-	 */
-	protected function needsQuirk() {
-		$ver        = curl_version();
-		$versionNum = $ver['version_number'];
-		return $versionNum < self::NO_QUIRK_VERSION;
-	}
+      $this->client->getLogger()->error('cURL ' . $error);
+      throw new GoogleGAL_IO_Exception($error, $code, null, $map);
+    }
+    $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+
+    list($responseHeaders, $responseBody) = $this->parseHttpResponse($response, $headerSize);
+    $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    $this->client->getLogger()->debug(
+        'cURL response',
+        array(
+            'code' => $responseCode,
+            'headers' => $responseHeaders,
+            'body' => $responseBody,
+        )
+    );
+
+    return array($responseBody, $responseHeaders, $responseCode);
+  }
+
+  /**
+   * Set options that update the transport implementation's behavior.
+   * @param $options
+   */
+  public function setOptions($options)
+  {
+    $this->options = $options + $this->options;
+  }
+
+  /**
+   * Set the maximum request time in seconds.
+   * @param $timeout in seconds
+   */
+  public function setTimeout($timeout)
+  {
+    // Since this timeout is really for putting a bound on the time
+    // we'll set them both to the same. If you need to specify a longer
+    // CURLOPT_TIMEOUT, or a higher CONNECTTIMEOUT, the best thing to
+    // do is use the setOptions method for the values individually.
+    $this->options[CURLOPT_CONNECTTIMEOUT] = $timeout;
+    $this->options[CURLOPT_TIMEOUT] = $timeout;
+  }
+
+  /**
+   * Get the maximum request time in seconds.
+   * @return timeout in seconds
+   */
+  public function getTimeout()
+  {
+    return $this->options[CURLOPT_TIMEOUT];
+  }
+
+  /**
+   * Test for the presence of a cURL header processing bug
+   *
+   * {@inheritDoc}
+   *
+   * @return boolean
+   */
+  protected function needsQuirk()
+  {
+    if ($this->disableProxyWorkaround) {
+      return false;
+    }
+
+    $ver = curl_version();
+    $versionNum = $ver['version_number'];
+    return $versionNum < GoogleGAL_IO_Curl::NO_QUIRK_VERSION;
+  }
 }

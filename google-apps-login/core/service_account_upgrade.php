@@ -1,6 +1,7 @@
 <?php
 
 function gal_service_account_upgrade( &$option, $gal_option_name, &$existing_sa_options, $gal_sa_option_name ) {
+
 	/*
 	 Convert ga_serviceemail ga_keyfilepath
 	* into new separate sa options:
@@ -19,7 +20,7 @@ function gal_service_account_upgrade( &$option, $gal_option_name, &$existing_sa_
 
 	try {
 		if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 && function_exists( 'openssl_x509_read' ) ) {
-			if ( isset( $option['ga_keyfilepath'] ) && '' !== $option['ga_keyfilepath'] && file_exists( $option['ga_keyfilepath'] ) ) {
+			if ( isset( $option['ga_keyfilepath'] ) && $option['ga_keyfilepath'] !== '' && file_exists( $option['ga_keyfilepath'] ) ) {
 				$p12key = @file_get_contents( $option['ga_keyfilepath'] );
 
 				$certs = array();
@@ -30,9 +31,12 @@ function gal_service_account_upgrade( &$option, $gal_option_name, &$existing_sa_
 						if ( openssl_pkey_export( $privateKey, $pemString ) ) {
 							$existing_sa_options['ga_sakey'] = $pemString;
 						}
-						openssl_pkey_free( $privateKey );
 
-						@unlink( $options['ga_keyfilepath'] );
+						if ( PHP_MAJOR_VERSION < 8 ) {
+							openssl_pkey_free( $privateKey );
+						}
+
+						@unlink( $option['ga_keyfilepath'] );
 					}
 				}
 			}
@@ -41,7 +45,9 @@ function gal_service_account_upgrade( &$option, $gal_option_name, &$existing_sa_
 		return;
 	}
 
-	// Remove redundant parts of regular options
-	unset( $option['ga_serviceemail'] );
-	unset( $option['ga_keyfilepath'] );
+	// Remove redundant parts of regular options.
+	unset(
+		$option['ga_serviceemail'],
+		$option['ga_keyfilepath']
+	);
 }

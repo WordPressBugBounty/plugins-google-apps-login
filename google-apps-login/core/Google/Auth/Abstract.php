@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,19 +19,18 @@ require_once realpath( dirname( __FILE__ ) . '/../../../autoload.php' );
 
 /**
  * Abstract class for the Authentication in the API client
- *
  * @author Chris Chabot <chabotc@google.com>
+ *
  */
-abstract class GoogleGAL_Auth_Abstract {
-
-	/**
-	 * An utility function that first calls $this->auth->sign($request) and then
-	 * executes makeRequest() on that signed request. Used for when a request
-	 * should be authenticated
-	 *
-	 * @param GoogleGAL_Http_Request $request
-	 * @return GoogleGAL_Http_Request $request
-	 */
-	abstract public function authenticatedRequest( GoogleGAL_Http_Request $request);
-	abstract public function sign( GoogleGAL_Http_Request $request);
+abstract class GoogleGAL_Auth_Abstract
+{
+  /**
+   * An utility function that first calls $this->auth->sign($request) and then
+   * executes makeRequest() on that signed request. Used for when a request
+   * should be authenticated
+   * @param GoogleGAL_Http_Request $request
+   * @return GoogleGAL_Http_Request $request
+   */
+  abstract public function authenticatedRequest(GoogleGAL_Http_Request $request);
+  abstract public function sign(GoogleGAL_Http_Request $request);
 }

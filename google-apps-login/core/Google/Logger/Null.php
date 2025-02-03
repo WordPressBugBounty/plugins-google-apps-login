@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,18 +22,20 @@ require_once realpath( dirname( __FILE__ ) . '/../../../autoload.php' );
  *
  * This logger simply discards all messages.
  */
-class GoogleGAL_Logger_Null extends GoogleGAL_Logger_Abstract {
+class GoogleGAL_Logger_Null extends GoogleGAL_Logger_Abstract
+{
+  /**
+   * {@inheritdoc}
+   */
+  public function shouldHandle($level)
+  {
+    return false;
+  }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function shouldHandle( $level ) {
-		return false;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	protected function write( $message, array $context = array() ) {
-	}
+  /**
+   * {@inheritdoc}
+   */
+  protected function write($message, array $context = array())
+  {
+  }
 }
