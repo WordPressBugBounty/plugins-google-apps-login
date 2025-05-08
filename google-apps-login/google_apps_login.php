@@ -5,13 +5,12 @@
  * Description: 	  Simple secure login for WordPress through users' Google Apps accounts (uses secure OAuth2, and MFA if enabled)
  * Requires at least: 5.5
  * Requires PHP:      7.2
- * Version: 		  3.5.1
+ * Version: 		  3.5.2
  * Author: 			  WP Glogin Team
  * Author URI: 		  https://wp-glogin.com/
  * Text Domain: 	  google-apps-login
  * Domain Path: 	  /lang
  * Network: 		  true
- *
  *
  * Google Apps Login is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +43,7 @@ if ( class_exists( 'Core_Google_Apps_Login' ) ) {
  */
 class Basic_Google_Apps_Login extends Core_Google_Apps_Login {
 
-	protected $plugin_version = '3.5.1';
+	protected $plugin_version = '3.5.2';
 
 	/**
 	 * Singleton Var.

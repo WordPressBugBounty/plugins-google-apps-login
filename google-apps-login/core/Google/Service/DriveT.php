@@ -33,29 +33,21 @@
 class GoogleGAL_Service_DriveT extends GoogleGAL_Service {
 
 	/** View and manage the files in your Google Drive. */
-	const DRIVE =
-	  'https://www.googleapis.com/auth/drive';
+	const DRIVE = 'https://www.googleapis.com/auth/drive';
 	/** View and manage its own configuration data in your Google Drive. */
-	const DRIVE_APPDATA =
-	  'https://www.googleapis.com/auth/drive.appdata';
+	const DRIVE_APPDATA = 'https://www.googleapis.com/auth/drive.appdata';
 	/** View and manage Google Drive files and folders that you have opened or created with this app. */
-	const DRIVE_FILE =
-	  'https://www.googleapis.com/auth/drive.file';
+	const DRIVE_FILE = 'https://www.googleapis.com/auth/drive.file';
 	/** View and manage metadata of files in your Google Drive. */
-	const DRIVE_METADATA =
-	  'https://www.googleapis.com/auth/drive.metadata';
+	const DRIVE_METADATA = 'https://www.googleapis.com/auth/drive.metadata';
 	/** View metadata for files in your Google Drive. */
-	const DRIVE_METADATA_READONLY =
-	  'https://www.googleapis.com/auth/drive.metadata.readonly';
+	const DRIVE_METADATA_READONLY = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 	/** View the photos, videos and albums in your Google Photos. */
-	const DRIVE_PHOTOS_READONLY =
-	  'https://www.googleapis.com/auth/drive.photos.readonly';
+	const DRIVE_PHOTOS_READONLY = 'https://www.googleapis.com/auth/drive.photos.readonly';
 	/** View the files in your Google Drive. */
-	const DRIVE_READONLY =
-	  'https://www.googleapis.com/auth/drive.readonly';
+	const DRIVE_READONLY = 'https://www.googleapis.com/auth/drive.readonly';
 	/** Modify your Google Apps Script scripts' behavior. */
-	const DRIVE_SCRIPTS =
-	  'https://www.googleapis.com/auth/drive.scripts';
+	const DRIVE_SCRIPTS = 'https://www.googleapis.com/auth/drive.scripts';
 
 	public $about;
 	public $changes;
@@ -979,7 +971,7 @@ class GoogleGAL_Service_DriveT_About extends GoogleGAL_Collection {
 		$this->appInstalled = $appInstalled;
 	}
 	public function getAppInstalled() {
-		 return $this->appInstalled;
+		return $this->appInstalled;
 	}
 	public function setExportFormats( $exportFormats ) {
 		$this->exportFormats = $exportFormats;
@@ -1003,7 +995,7 @@ class GoogleGAL_Service_DriveT_About extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setMaxImportSizes( $maxImportSizes ) {
 		$this->maxImportSizes = $maxImportSizes;
@@ -1021,13 +1013,13 @@ class GoogleGAL_Service_DriveT_About extends GoogleGAL_Collection {
 		$this->storageQuota = $storageQuota;
 	}
 	public function getStorageQuota() {
-		 return $this->storageQuota;
+		return $this->storageQuota;
 	}
 	public function setUser( GoogleGAL_Service_DriveT_User $user ) {
 		$this->user = $user;
 	}
 	public function getUser() {
-		 return $this->user;
+		return $this->user;
 	}
 }
 
@@ -1070,7 +1062,7 @@ class GoogleGAL_Service_DriveT_AboutStorageQuota extends GoogleGAL_Model {
 		$this->usageInDrive = $usageInDrive;
 	}
 	public function getUsageInDrive() {
-		 return $this->usageInDrive;
+		return $this->usageInDrive;
 	}
 	public function setUsageInDriveTrash( $usageInDriveTrash ) {
 		$this->usageInDriveTrash = $usageInDriveTrash;
@@ -1113,7 +1105,7 @@ class GoogleGAL_Service_DriveT_Change extends GoogleGAL_Model {
 		$this->file = $file;
 	}
 	public function getFile() {
-		 return $this->file;
+		return $this->file;
 	}
 	public function setFileId( $fileId ) {
 		$this->fileId = $fileId;
@@ -1125,7 +1117,7 @@ class GoogleGAL_Service_DriveT_Change extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setRemoved( $removed ) {
 		$this->removed = $removed;
@@ -1149,13 +1141,13 @@ class GoogleGAL_Service_DriveT_Change extends GoogleGAL_Model {
 		$this->time = $time;
 	}
 	public function getTime() {
-		 return $this->time;
+		return $this->time;
 	}
 	public function setType( $type ) {
 		$this->type = $type;
 	}
 	public function getType() {
-		 return $this->type;
+		return $this->type;
 	}
 }
 
@@ -1194,7 +1186,7 @@ class GoogleGAL_Service_DriveT_ChangeList extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNewStartPageToken( $newStartPageToken ) {
 		$this->newStartPageToken = $newStartPageToken;
@@ -1261,7 +1253,7 @@ class GoogleGAL_Service_DriveT_Channel extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setParams( $params ) {
 		$this->params = $params;
@@ -1297,7 +1289,7 @@ class GoogleGAL_Service_DriveT_Channel extends GoogleGAL_Model {
 		$this->type = $type;
 	}
 	public function getType() {
-		 return $this->type;
+		return $this->type;
 	}
 }
 
@@ -1382,13 +1374,13 @@ class GoogleGAL_Service_DriveT_Comment extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setModifiedTime( $modifiedTime ) {
 		$this->modifiedTime = $modifiedTime;
 	}
 	public function getModifiedTime() {
-		 return $this->modifiedTime;
+		return $this->modifiedTime;
 	}
 	public function setQuotedFileContent( GoogleGAL_Service_DriveT_CommentQuotedFileContent $quotedFileContent ) {
 		$this->quotedFileContent = $quotedFileContent;
@@ -1406,7 +1398,7 @@ class GoogleGAL_Service_DriveT_Comment extends GoogleGAL_Collection {
 		$this->resolved = $resolved;
 	}
 	public function getResolved() {
-		 return $this->resolved;
+		return $this->resolved;
 	}
 }
 
@@ -1438,13 +1430,13 @@ class GoogleGAL_Service_DriveT_CommentList extends GoogleGAL_Collection {
 		$this->comments = $comments;
 	}
 	public function getComments() {
-		 return $this->comments;
+		return $this->comments;
 	}
 	public function setKind( $kind ) {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -1479,7 +1471,7 @@ class GoogleGAL_Service_DriveT_CommentQuotedFileContent extends GoogleGAL_Model 
 		$this->mimeType = $mimeType;
 	}
 	public function getMimeType() {
-		 return $this->mimeType;
+		return $this->mimeType;
 	}
 	public function setValue( $value ) {
 		$this->value = $value;
@@ -1537,6 +1529,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 	public $modifiedTime;
 	public $name;
 	public $originalFilename;
+	public $owners;
 	public $ownedByMe;
 	protected $ownersType     = 'GoogleGAL_Service_DriveT_User';
 	protected $ownersDataType = 'array';
@@ -1579,13 +1572,13 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->capabilities = $capabilities;
 	}
 	public function getCapabilities() {
-		 return $this->capabilities;
+		return $this->capabilities;
 	}
 	public function setContentHints( GoogleGAL_Service_DriveT_DriveFileContentHints $contentHints ) {
 		$this->contentHints = $contentHints;
 	}
 	public function getContentHints() {
-		 return $this->contentHints;
+		return $this->contentHints;
 	}
 	public function setCreatedTime( $createdTime ) {
 		$this->createdTime = $createdTime;
@@ -1633,7 +1626,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->hasThumbnail = $hasThumbnail;
 	}
 	public function getHasThumbnail() {
-		 return $this->hasThumbnail;
+		return $this->hasThumbnail;
 	}
 	public function setHeadRevisionId( $headRevisionId ) {
 		$this->headRevisionId = $headRevisionId;
@@ -1645,7 +1638,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->iconLink = $iconLink;
 	}
 	public function getIconLink() {
-		 return $this->iconLink;
+		return $this->iconLink;
 	}
 	public function setId( $id ) {
 		$this->id = $id;
@@ -1669,7 +1662,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setLastModifyingUser( GoogleGAL_Service_DriveT_User $lastModifyingUser ) {
 		$this->lastModifyingUser = $lastModifyingUser;
@@ -1687,37 +1680,37 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->mimeType = $mimeType;
 	}
 	public function getMimeType() {
-		 return $this->mimeType;
+		return $this->mimeType;
 	}
 	public function setModifiedByMe( $modifiedByMe ) {
 		$this->modifiedByMe = $modifiedByMe;
 	}
 	public function getModifiedByMe() {
-		 return $this->modifiedByMe;
+		return $this->modifiedByMe;
 	}
 	public function setModifiedByMeTime( $modifiedByMeTime ) {
 		$this->modifiedByMeTime = $modifiedByMeTime;
 	}
 	public function getModifiedByMeTime() {
-		 return $this->modifiedByMeTime;
+		return $this->modifiedByMeTime;
 	}
 	public function setModifiedTime( $modifiedTime ) {
 		$this->modifiedTime = $modifiedTime;
 	}
 	public function getModifiedTime() {
-		 return $this->modifiedTime;
+		return $this->modifiedTime;
 	}
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 	public function getName() {
-		 return $this->name;
+		return $this->name;
 	}
 	public function setOriginalFilename( $originalFilename ) {
 		$this->originalFilename = $originalFilename;
 	}
 	public function getOriginalFilename() {
-		 return $this->originalFilename;
+		return $this->originalFilename;
 	}
 	public function setOwnedByMe( $ownedByMe ) {
 		$this->ownedByMe = $ownedByMe;
@@ -1765,7 +1758,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->sharedWithMeTime = $sharedWithMeTime;
 	}
 	public function getSharedWithMeTime() {
-		 return $this->sharedWithMeTime;
+		return $this->sharedWithMeTime;
 	}
 	public function setSharingUser( GoogleGAL_Service_DriveT_User $sharingUser ) {
 		$this->sharingUser = $sharingUser;
@@ -1777,7 +1770,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->size = $size;
 	}
 	public function getSize() {
-		 return $this->size;
+		return $this->size;
 	}
 	public function setSpaces( $spaces ) {
 		$this->spaces = $spaces;
@@ -1807,7 +1800,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->thumbnailVersion = $thumbnailVersion;
 	}
 	public function getThumbnailVersion() {
-		 return $this->thumbnailVersion;
+		return $this->thumbnailVersion;
 	}
 	public function setTrashed( $trashed ) {
 		$this->trashed = $trashed;
@@ -1825,7 +1818,7 @@ class GoogleGAL_Service_DriveT_DriveFile extends GoogleGAL_Collection {
 		$this->trashingUser = $trashingUser;
 	}
 	public function getTrashingUser() {
-		 return $this->trashingUser;
+		return $this->trashingUser;
 	}
 	public function setVersion( $version ) {
 		$this->version = $version;
@@ -1958,25 +1951,25 @@ class GoogleGAL_Service_DriveT_DriveFileCapabilities extends GoogleGAL_Model {
 		$this->canMoveItemIntoTeamDrive = $canMoveItemIntoTeamDrive;
 	}
 	public function getCanMoveItemIntoTeamDrive() {
-		 return $this->canMoveItemIntoTeamDrive;
+		return $this->canMoveItemIntoTeamDrive;
 	}
 	public function setCanMoveTeamDriveItem( $canMoveTeamDriveItem ) {
 		$this->canMoveTeamDriveItem = $canMoveTeamDriveItem;
 	}
 	public function getCanMoveTeamDriveItem() {
-		 return $this->canMoveTeamDriveItem;
+		return $this->canMoveTeamDriveItem;
 	}
 	public function setCanReadRevisions( $canReadRevisions ) {
 		$this->canReadRevisions = $canReadRevisions;
 	}
 	public function getCanReadRevisions() {
-		 return $this->canReadRevisions;
+		return $this->canReadRevisions;
 	}
 	public function setCanReadTeamDrive( $canReadTeamDrive ) {
 		$this->canReadTeamDrive = $canReadTeamDrive;
 	}
 	public function getCanReadTeamDrive() {
-		 return $this->canReadTeamDrive;
+		return $this->canReadTeamDrive;
 	}
 	public function setCanRemoveChildren( $canRemoveChildren ) {
 		$this->canRemoveChildren = $canRemoveChildren;
@@ -1994,13 +1987,13 @@ class GoogleGAL_Service_DriveT_DriveFileCapabilities extends GoogleGAL_Model {
 		$this->canShare = $canShare;
 	}
 	public function getCanShare() {
-		 return $this->canShare;
+		return $this->canShare;
 	}
 	public function setCanTrash( $canTrash ) {
 		$this->canTrash = $canTrash;
 	}
 	public function getCanTrash() {
-		 return $this->canTrash;
+		return $this->canTrash;
 	}
 	public function setCanUntrash( $canUntrash ) {
 		$this->canUntrash = $canUntrash;
@@ -2077,7 +2070,7 @@ class GoogleGAL_Service_DriveT_DriveFileContentHintsThumbnail extends GoogleGAL_
 		$this->mimeType = $mimeType;
 	}
 	public function getMimeType() {
-		 return $this->mimeType;
+		return $this->mimeType;
 	}
 }
 
@@ -2126,7 +2119,7 @@ class GoogleGAL_Service_DriveT_DriveFileImageMediaMetadata extends GoogleGAL_Mod
 		$this->aperture = $aperture;
 	}
 	public function getAperture() {
-		 return $this->aperture;
+		return $this->aperture;
 	}
 	public function setCameraMake( $cameraMake ) {
 		$this->cameraMake = $cameraMake;
@@ -2150,19 +2143,19 @@ class GoogleGAL_Service_DriveT_DriveFileImageMediaMetadata extends GoogleGAL_Mod
 		$this->exposureBias = $exposureBias;
 	}
 	public function getExposureBias() {
-		 return $this->exposureBias;
+		return $this->exposureBias;
 	}
 	public function setExposureMode( $exposureMode ) {
 		$this->exposureMode = $exposureMode;
 	}
 	public function getExposureMode() {
-		 return $this->exposureMode;
+		return $this->exposureMode;
 	}
 	public function setExposureTime( $exposureTime ) {
 		$this->exposureTime = $exposureTime;
 	}
 	public function getExposureTime() {
-		 return $this->exposureTime;
+		return $this->exposureTime;
 	}
 	public function setFlashUsed( $flashUsed ) {
 		$this->flashUsed = $flashUsed;
@@ -2186,37 +2179,37 @@ class GoogleGAL_Service_DriveT_DriveFileImageMediaMetadata extends GoogleGAL_Mod
 		$this->isoSpeed = $isoSpeed;
 	}
 	public function getIsoSpeed() {
-		 return $this->isoSpeed;
+		return $this->isoSpeed;
 	}
 	public function setLens( $lens ) {
 		$this->lens = $lens;
 	}
 	public function getLens() {
-		 return $this->lens;
+		return $this->lens;
 	}
 	public function setLocation( GoogleGAL_Service_DriveT_DriveFileImageMediaMetadataLocation $location ) {
 		$this->location = $location;
 	}
 	public function getLocation() {
-		 return $this->location;
+		return $this->location;
 	}
 	public function setMaxApertureValue( $maxApertureValue ) {
 		$this->maxApertureValue = $maxApertureValue;
 	}
 	public function getMaxApertureValue() {
-		 return $this->maxApertureValue;
+		return $this->maxApertureValue;
 	}
 	public function setMeteringMode( $meteringMode ) {
 		$this->meteringMode = $meteringMode;
 	}
 	public function getMeteringMode() {
-		 return $this->meteringMode;
+		return $this->meteringMode;
 	}
 	public function setRotation( $rotation ) {
 		$this->rotation = $rotation;
 	}
 	public function getRotation() {
-		 return $this->rotation;
+		return $this->rotation;
 	}
 	public function setSensor( $sensor ) {
 		$this->sensor = $sensor;
@@ -2234,13 +2227,13 @@ class GoogleGAL_Service_DriveT_DriveFileImageMediaMetadata extends GoogleGAL_Mod
 		$this->time = $time;
 	}
 	public function getTime() {
-		 return $this->time;
+		return $this->time;
 	}
 	public function setWhiteBalance( $whiteBalance ) {
 		$this->whiteBalance = $whiteBalance;
 	}
 	public function getWhiteBalance() {
-		 return $this->whiteBalance;
+		return $this->whiteBalance;
 	}
 	public function setWidth( $width ) {
 		$this->width = $width;
@@ -2276,13 +2269,13 @@ class GoogleGAL_Service_DriveT_DriveFileImageMediaMetadataLocation extends Googl
 		$this->altitude = $altitude;
 	}
 	public function getAltitude() {
-		 return $this->altitude;
+		return $this->altitude;
 	}
 	public function setLatitude( $latitude ) {
 		$this->latitude = $latitude;
 	}
 	public function getLatitude() {
-		 return $this->latitude;
+		return $this->latitude;
 	}
 	public function setLongitude( $longitude ) {
 		$this->longitude = $longitude;
@@ -2369,13 +2362,13 @@ class GoogleGAL_Service_DriveT_FileList extends GoogleGAL_Collection {
 		$this->incompleteSearch = $incompleteSearch;
 	}
 	public function getIncompleteSearch() {
-		 return $this->incompleteSearch;
+		return $this->incompleteSearch;
 	}
 	public function setKind( $kind ) {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -2418,7 +2411,7 @@ class GoogleGAL_Service_DriveT_GeneratedIds extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setSpace( $space ) {
 		$this->space = $space;
@@ -2482,7 +2475,7 @@ class GoogleGAL_Service_DriveT_Permission extends GoogleGAL_Collection {
 		$this->emailAddress = $emailAddress;
 	}
 	public function getEmailAddress() {
-		 return $this->emailAddress;
+		return $this->emailAddress;
 	}
 	public function setExpirationTime( $expirationTime ) {
 		$this->expirationTime = $expirationTime;
@@ -2500,7 +2493,7 @@ class GoogleGAL_Service_DriveT_Permission extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setPhotoLink( $photoLink ) {
 		$this->photoLink = $photoLink;
@@ -2512,7 +2505,7 @@ class GoogleGAL_Service_DriveT_Permission extends GoogleGAL_Collection {
 		$this->role = $role;
 	}
 	public function getRole() {
-		 return $this->role;
+		return $this->role;
 	}
 	public function setTeamDrivePermissionDetails( $teamDrivePermissionDetails ) {
 		$this->teamDrivePermissionDetails = $teamDrivePermissionDetails;
@@ -2524,7 +2517,7 @@ class GoogleGAL_Service_DriveT_Permission extends GoogleGAL_Collection {
 		$this->type = $type;
 	}
 	public function getType() {
-		 return $this->type;
+		return $this->type;
 	}
 }
 
@@ -2556,7 +2549,7 @@ class GoogleGAL_Service_DriveT_PermissionList extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -2611,7 +2604,7 @@ class GoogleGAL_Service_DriveT_PermissionTeamDrivePermissionDetails extends Goog
 		$this->role = $role;
 	}
 	public function getRole() {
-		 return $this->role;
+		return $this->role;
 	}
 	public function setTeamDrivePermissionType( $teamDrivePermissionType ) {
 		$this->teamDrivePermissionType = $teamDrivePermissionType;
@@ -2696,13 +2689,13 @@ class GoogleGAL_Service_DriveT_Reply extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setModifiedTime( $modifiedTime ) {
 		$this->modifiedTime = $modifiedTime;
 	}
 	public function getModifiedTime() {
-		 return $this->modifiedTime;
+		return $this->modifiedTime;
 	}
 }
 
@@ -2734,7 +2727,7 @@ class GoogleGAL_Service_DriveT_ReplyList extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -2798,7 +2791,7 @@ class GoogleGAL_Service_DriveT_Revision extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setLastModifyingUser( GoogleGAL_Service_DriveT_User $lastModifyingUser ) {
 		$this->lastModifyingUser = $lastModifyingUser;
@@ -2816,19 +2809,19 @@ class GoogleGAL_Service_DriveT_Revision extends GoogleGAL_Model {
 		$this->mimeType = $mimeType;
 	}
 	public function getMimeType() {
-		 return $this->mimeType;
+		return $this->mimeType;
 	}
 	public function setModifiedTime( $modifiedTime ) {
 		$this->modifiedTime = $modifiedTime;
 	}
 	public function getModifiedTime() {
-		 return $this->modifiedTime;
+		return $this->modifiedTime;
 	}
 	public function setOriginalFilename( $originalFilename ) {
 		$this->originalFilename = $originalFilename;
 	}
 	public function getOriginalFilename() {
-		 return $this->originalFilename;
+		return $this->originalFilename;
 	}
 	public function setPublishAuto( $publishAuto ) {
 		$this->publishAuto = $publishAuto;
@@ -2852,7 +2845,7 @@ class GoogleGAL_Service_DriveT_Revision extends GoogleGAL_Model {
 		$this->size = $size;
 	}
 	public function getSize() {
-		 return $this->size;
+		return $this->size;
 	}
 }
 
@@ -2884,7 +2877,7 @@ class GoogleGAL_Service_DriveT_RevisionList extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -2925,7 +2918,7 @@ class GoogleGAL_Service_DriveT_StartPageToken extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setStartPageToken( $startPageToken ) {
 		$this->startPageToken = $startPageToken;
@@ -2963,7 +2956,7 @@ class GoogleGAL_Service_DriveT_TeamDrive extends GoogleGAL_Model {
 		$this->capabilities = $capabilities;
 	}
 	public function getCapabilities() {
-		 return $this->capabilities;
+		return $this->capabilities;
 	}
 	public function setId( $id ) {
 		$this->id = $id;
@@ -2975,13 +2968,13 @@ class GoogleGAL_Service_DriveT_TeamDrive extends GoogleGAL_Model {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 	public function getName() {
-		 return $this->name;
+		return $this->name;
 	}
 }
 
@@ -3063,13 +3056,13 @@ class GoogleGAL_Service_DriveT_TeamDriveCapabilities extends GoogleGAL_Model {
 		$this->canManageMembers = $canManageMembers;
 	}
 	public function getCanManageMembers() {
-		 return $this->canManageMembers;
+		return $this->canManageMembers;
 	}
 	public function setCanReadRevisions( $canReadRevisions ) {
 		$this->canReadRevisions = $canReadRevisions;
 	}
 	public function getCanReadRevisions() {
-		 return $this->canReadRevisions;
+		return $this->canReadRevisions;
 	}
 	public function setCanRemoveChildren( $canRemoveChildren ) {
 		$this->canRemoveChildren = $canRemoveChildren;
@@ -3093,7 +3086,7 @@ class GoogleGAL_Service_DriveT_TeamDriveCapabilities extends GoogleGAL_Model {
 		$this->canShare = $canShare;
 	}
 	public function getCanShare() {
-		 return $this->canShare;
+		return $this->canShare;
 	}
 }
 
@@ -3125,7 +3118,7 @@ class GoogleGAL_Service_DriveT_TeamDriveList extends GoogleGAL_Collection {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setNextPageToken( $nextPageToken ) {
 		$this->nextPageToken = $nextPageToken;
@@ -3176,13 +3169,13 @@ class GoogleGAL_Service_DriveT_User extends GoogleGAL_Model {
 		$this->emailAddress = $emailAddress;
 	}
 	public function getEmailAddress() {
-		 return $this->emailAddress;
+		return $this->emailAddress;
 	}
 	public function setKind( $kind ) {
 		$this->kind = $kind;
 	}
 	public function getKind() {
-		 return $this->kind;
+		return $this->kind;
 	}
 	public function setMe( $me ) {
 		$this->me = $me;
@@ -3194,7 +3187,7 @@ class GoogleGAL_Service_DriveT_User extends GoogleGAL_Model {
 		$this->permissionId = $permissionId;
 	}
 	public function getPermissionId() {
-		 return $this->permissionId;
+		return $this->permissionId;
 	}
 	public function setPhotoLink( $photoLink ) {
 		$this->photoLink = $photoLink;

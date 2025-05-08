@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Google Apps Login plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Google Apps Login 3.5.0\n"
+"Project-Id-Version: Google Apps Login 3.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/google-apps-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-31T17:02:31+00:00\n"
+"POT-Creation-Date: 2025-05-08T15:45:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: google-apps-login\n"
 
 #. Plugin Name of the plugin
@@ -72,6 +72,7 @@ msgstr ""
 
 #. translators: %s: Link to the site.
 #: core/core_google_apps_login.php:426
+#, php-format
 msgid "Powered by %s"
 msgstr ""
 
@@ -85,11 +86,13 @@ msgstr ""
 
 #. translators: %s: URL to the documentation.
 #: core/core_google_apps_login.php:497
+#, php-format
 msgid "The admin needs to configure the \"Login for Google Apps\" plugin - please follow <a href=\"%s\" target=\"_blank\">instructions here</a>"
 msgstr ""
 
 #. translators: %s: Login button text.
 #: core/core_google_apps_login.php:507
+#, php-format
 msgid "The user must use <i>%s</i> to access the site"
 msgstr ""
 
@@ -119,16 +122,19 @@ msgstr ""
 
 #. translators: %s: User email
 #: core/core_google_apps_login.php:604
+#, php-format
 msgid "User %s is not registered in WordPress"
 msgstr ""
 
 #. translators: %s: Settings page URL.
 #: core/core_google_apps_login.php:821
+#, php-format
 msgid "Please complete the \"Login for Google Apps\" plugin configuration on the <a href=\"%s\">Settings</a> page to make the plugin work."
 msgstr ""
 
 #. translators: %s: URL to the plugin.
 #: core/core_google_apps_login.php:871
+#, php-format
 msgid "Install <a href=\"%s\" target=\"_blank\">Google Profile Avatars</a> to use your Google account's profile photo here automatically."
 msgstr ""
 
@@ -162,6 +168,7 @@ msgstr ""
 
 #. translators: %s: URL to the documentation.
 #: core/core_google_apps_login.php:1039
+#, php-format
 msgid "The <a href='%s'>instructions</a> above will guide you to Google's Cloud Console where you will enter two URLs, and also obtain two codes (Client ID and Client Secret) which you will need to enter in the boxes below."
 msgstr ""
 
@@ -172,6 +179,7 @@ msgstr ""
 #. translators: %s: Example value.
 #: core/core_google_apps_login.php:1051
 #: core/core_google_apps_login.php:1063
+#, php-format
 msgid "Normally something like %s"
 msgstr ""
 
@@ -197,6 +205,7 @@ msgstr ""
 
 #. translators: %s: URL to the documentation.
 #: core/core_google_apps_login.php:1093
+#, php-format
 msgid "In order for all users to have permissions to access domain-level information from Google, you will need to create a Service Account. Please see our <a href=\"%s\" target=\"_blank\">extended instructions here</a>."
 msgstr ""
 
@@ -355,6 +364,7 @@ msgstr ""
 
 #. translators: %s: Link to the site.
 #: google_apps_login.php:124
+#, php-format
 msgid "Buy our <a href=\"%s\" target=\"_blank\">premium Login plugin</a> to revolutionize user management"
 msgstr ""
 
@@ -364,6 +374,7 @@ msgstr ""
 
 #. translators: %s: Link to the site.
 #: google_apps_login.php:141
+#, php-format
 msgid "Try our <a href=\"%s\" target=\"_blank\">Google Drive Embedder</a> plugin"
 msgstr ""
 
@@ -405,6 +416,7 @@ msgstr ""
 
 #. translators: %s: Link to the site.
 #: google_apps_login.php:230
+#, php-format
 msgid "Completely forget about WordPress user management - upgrade to <a href=\"%s\">Login for Google Apps Premium or Enterprise</a> to automatically sync users from your Google Apps domain"
 msgstr ""
 

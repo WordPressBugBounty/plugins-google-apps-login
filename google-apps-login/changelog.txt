@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 3.5.2 =
+* Changed: Updated compatibility with WordPress 6.8.
+* Fixed: One Google Services class was missing in the packaged library resulting in Google Drive Embedder Enterprise not working correctly.
+* Fixed: Various PHP Deprecation notices and warnings in the Google Services library.
+
 = 3.5.1 =
 * Fixed: There was a fatal error when editing a single user in the admin area due to the incorrect usage of the built-in WordPress filter.
 

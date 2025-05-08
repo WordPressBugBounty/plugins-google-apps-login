@@ -3,8 +3,8 @@ Contributors: slaFFik, jaredatch, smub
 Tags: login, google, authentication, oauth, sso
 Requires at least: 5.5
 Requires PHP: 7.2
-Tested up to: 6.7
-Stable tag: 3.5.1
+Tested up to: 6.8
+Stable tag: 3.5.2
 License: GPL-2.0-or-later
 
 Simple secure login and user management through your Google Workspace for WordPress (using oAuth2 and MFA if enabled).
@@ -180,6 +180,11 @@ Personalized instructions to configure the plugin by registering your site with 
 For a (non-personalized) preview of these instructions please [click here](https://wp-glogin.com/installing-google-apps-login/basic-setup/).
 
 == Changelog ==
+
+= 3.5.2 =
+* Changed: Updated compatibility with WordPress 6.8.
+* Fixed: One Google Services class was missing in the packaged library resulting in Google Drive Embedder Enterprise not working correctly.
+* Fixed: Various PHP Deprecation notices and warnings in the Google Services library.
 
 = 3.5.1 =
 * Fixed: There was a fatal error when editing a single user in the admin area due to the incorrect usage of the built-in WordPress filter.

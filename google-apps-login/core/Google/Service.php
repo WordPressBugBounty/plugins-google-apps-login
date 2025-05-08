@@ -20,6 +20,7 @@ class GoogleGAL_Service
   public $batchPath;
   public $rootUrl;
   public $version;
+  public $serviceName;
   public $servicePath;
   public $availableScopes;
   public $resource;
